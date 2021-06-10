@@ -1,0 +1,115 @@
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <title>JS Issue Tracker</title>
+      <!-- Bootstrap -->
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  
+  <body style="background-color: #12232E;" id="everything">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-database.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyC1n4hhM3O8aZNGMFQngfo5p6EzV00YLzE",
+      authDomain: "wwuweightroomdatavis.firebaseapp.com",
+      databaseURL: "https://wwuweightroomdatavis-default-rtdb.firebaseio.com",
+      projectId: "wwuweightroomdatavis",
+      storageBucket: "wwuweightroomdatavis.appspot.com",
+      messagingSenderId: "448917548190",
+      appId: "1:448917548190:web:4bf38605fe98f7c5711f8f",
+      measurementId: "G-EYQRBZP979"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    </script>
+
+    <style>
+      h2 {text-align: center;}
+      
+    </style>
+
+    <h2  style="color: white;">WWU Weight Room Data</h2>
+    <p   style="color: white;text-align: center;width: 30%;">select what team you want to view data from and use
+                                            the slide bar to select what percentage of the athletes 
+                                            body weight you want the data to be compared to.</p>
+
+    <form style="background-color: #4DA8DA ;text-align: center;width: 30%;" id=sideBar>
+      
+    </form>
+
+    <br>
+    <div class="rangeslider">
+      <input style="width: 30%;" type="range" min="1" max="200" value="100" class="myslider" id="sliderRange">
+      <p style="color: white;">percentage of body weight: <span id="demo"></span></p>
+    </div>  
+    <div>
+      
+    </div> 
+    <br>
+    <table style="width: 100%;background-color: lightgray;"  id ="dataTable">
+      <tr>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Squat</th>
+        <th>Bench</th>
+        <th>Clean</th>
+        <th>Delete</th>
+      </tr>
+    </table>
+    <br> 
+    <div style="display: flex;">
+      <div style="width: 5%;">
+
+      </div>
+      <div>
+        <p style="color: white;">
+          Select a CSV file that you downloaded from TeamBuildr and click submit 
+          and the data will be added to the databse.
+        </p>
+        <form style = "background-color: #007CC7;" id="inputForm">
+          <label style="color: white;"for="fname">Select a TeamBuildr File:</label><br>
+          <input type="file" id="dataIn" name="dataIn" value=""><br>
+          <input type="submit" onclick="addData()" value="Submit">
+        </form>
+      </div>
+      <div style="width: 5%;">
+
+      </div>
+      <div>
+        <p style="color: white;">
+          this entry is to either add an athlete to a team or to update an athletes weight.
+          to do this fill out the form with what team the athlete is a part of, what their name is, 
+          and the athletes estimated weight.
+        </p>
+        <form  style = "background-color: #007CC7 ;"id ="inputForm2">
+          <label style="color: white;"for="fname">Athlete Team:</label><br>
+          <input type="text" id="teamIn" name="teamIn" value=""><br><br>
+          <label style="color: white;"for="fname">Athlete Name:</label><br>
+          <input type="text" id="nameIn" name="nameIn" value=""><br><br>
+          <label style="color: white;"for="fname">Athlete Weight:</label><br>
+          <input type="text" id="weightIn" name="weightIn" value=""><br><br>
+          <input type="submit" onclick="addAthlete()" value="Submit">
+        </form>
+      </div>
+      <div style="width: 5%;">
+
+      </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://chancejs.com/chance.min.js"></script>
+<script src="https://cdn.rawgit.com/mholt/PapaParse/2f1eb8c4/papaparse.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../functions/index.js"></script>
+</html>
